@@ -12,7 +12,8 @@ import { FormControlLabel } from '@mui/material';
 import { Radio } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux'
 import { addtitle } from '../features/todoslice';
-
+import Snackbar from '@mui/material/Snackbar';
+import CloseIcon from '@mui/icons-material/Close';
 function Create() {
   
   const todos=useSelector(state=>state.todos);
@@ -22,9 +23,12 @@ function Create() {
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
   const [type, setType] = useState('money');
+  const [open, setOpen] = useState(false);
   const dispatch=useDispatch();
+  
   const handle = (e) => {
     e.preventDefault();
+    setOpen(true);
     setDetailsError(false);
     setTitleError(false);
     dispatch(addtitle({title:title,detail:details,type:type}));
@@ -96,7 +100,14 @@ function Create() {
     Submit
 </Button>
 </form>
+<Snackbar
+message="Note added"
+open={open}
+onClose={()=>setOpen(false)}
+autoHideDuration={2000}
+anchorOrigin={{vertical:'bottom',horizontal:'right'}}
 
+/>
     </div>
   )
 }
