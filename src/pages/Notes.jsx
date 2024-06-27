@@ -4,7 +4,7 @@ import {Paper} from '@mui/material'
 function Notes() {
   return (
  <>
- <Grid container >
+ <Grid container spacing={5}>
     <Grid item md={3}>
       <Paper>1</Paper>
     </Grid>

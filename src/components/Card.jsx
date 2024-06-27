@@ -3,7 +3,11 @@ import { Card, CardContent, CardActions, Typography, Button } from '@mui/materia
 
 function Card() {
   return (
-<></>    
+<>
+<Card>
+  
+</Card>
+</>    
   )
 }
 
