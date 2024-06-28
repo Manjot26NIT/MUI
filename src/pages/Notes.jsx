@@ -1,27 +1,34 @@
-import React from 'react'
-import { Grid } from '@mui/material'
-import {Paper} from '@mui/material'
-function Notes() {
-  return (
- <>
- <Grid container spacing={5}>
-    <Grid item md={3}>
-      <Paper>1</Paper>
-    </Grid>
-    <Grid item md={3} >
-      <Paper>1</Paper>
-    </Grid>
-    <Grid item md={3} >
-      <Paper>1</Paper>
-    </Grid  >
-    <Grid item md={3}>
-      <Paper>1</Paper>
-    </Grid>
+import React from 'react';
+import { Grid, Paper, Box } from '@mui/material';
+import TodoCard from '../components/TodoCard';
+import { useSelector } from 'react-redux';
 
-  </Grid>  
- </>
-  
-  )
+function Notes() {
+  const notes = useSelector((state) => state.todos);
+
+  return (
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          mx: '1rem',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+        }}
+      >
+        {notes.map((todo) => (
+          <Box
+            key={todo.id} // Ensure each child has a unique key
+            maxWidth={370}
+            sx={{  my: '1rem', boxShadow: 1, display: 'flex' }}
+          >
+            <TodoCard todo={todo} />
+          </Box>
+        ))}
+      </Box>
+    </>
+  );
 }
 
-export default Notes
+export default Notes;

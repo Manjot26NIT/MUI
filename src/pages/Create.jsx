@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import TextField from '@mui/material/TextField';
 import { blue } from '@mui/material/colors';
-import { FormControl, FormLabel } from '@mui/material';
+import { Box, FormControl, FormLabel } from '@mui/material';
 import { FormHelperText } from '@mui/material';
 import { RadioGroup } from '@mui/material';
 import { FormControlLabel } from '@mui/material';
@@ -49,7 +49,7 @@ function Create() {
     
   }
   return (
-    <div>
+    <Box sx={{flexGrow:1}} >
     <Typography variant='h4' component="h2" gutterBottom sx={{ color: 'primary.main' }} >
         Create a new note
     </Typography>
@@ -108,7 +108,7 @@ autoHideDuration={2000}
 anchorOrigin={{vertical:'bottom',horizontal:'right'}}
 
 />
-    </div>
+</Box>
   )
 }
 

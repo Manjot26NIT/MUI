@@ -7,14 +7,21 @@ import Notes from './pages/Notes'
 import Create from './pages/Create'
 import {store} from './app/store'
 import {Provider} from 'react-redux'
+import Layout from './components/Layout.jsx'
 const router=createBrowserRouter([
   {
     path:'/',
-    element:<Notes/>,
-  },
-  {
-    path:'/create',
-    element:<Create/>,
+    element:<Layout/>,
+    children:[
+    {
+      path:'',
+      element:<Notes/>
+    }  ,
+    {
+      path:'create',
+      element:<Create/>
+    }
+    ]
   }
   
   
