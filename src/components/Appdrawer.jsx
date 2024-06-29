@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -17,9 +18,13 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import { Badge } from '@mui/material';
 function Appdrawer() {
 
     const [selected, setSelected] = React.useState(false);
+    const todos=useSelector(state=>state.todos);
+    const length= todos.length;
     const handleClick = () => {
         if(e){
         setSelected(true);}
@@ -43,7 +48,7 @@ const drawerWidth = 240;
         anchor="left"
       >
         <Toolbar>
-            <Typography variant='h6' fontFamily={'monospace'} >
+            <Typography color='primary' variant='h6'  >
             Dashboard
             </Typography>
         </Toolbar>
@@ -59,7 +64,9 @@ const drawerWidth = 240;
       },
     }} >
                 <ListItemIcon>
+                    <Badge color='primary' badgeContent={length} >
                    <InboxIcon />
+                   </Badge>
                 </ListItemIcon>
                 <ListItemText primary={"Inbox"} />
               </ListItemButton>
@@ -87,9 +94,9 @@ const drawerWidth = 240;
       
     }}>
                 <ListItemIcon>
-                   <DeleteIcon/>
+                   <SaveAltIcon />
                 </ListItemIcon>
-                <ListItemText primary={"Delete"} />
+                <ListItemText primary={"Save"} />
               </ListItemButton>
             </ListItem>
      

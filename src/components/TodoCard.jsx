@@ -4,13 +4,15 @@ import { Card as MuiCard, CardContent, CardActions, Typography, Button, CardHead
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { IconButton } from '@mui/material';
 import { red } from '@mui/material/colors';
-
+import { useDispatch } from 'react-redux';
+import {  removeTodo } from '../features/todoslice';
 function TodoCard({ todo }) {
+  const dispatch = useDispatch();
   return (
-    <MuiCard  sx={{ maxWidth: 370 }}>
+    <MuiCard  sx={{ Width: 250,flexGrow:'1' }}>
       <CardHeader
         action={
-          <IconButton>
+          <IconButton onClick={()=>dispatch(removeTodo(todo.id))} >
             <DeleteOutlineIcon />
           </IconButton>
         }

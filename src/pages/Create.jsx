@@ -28,10 +28,10 @@ function Create() {
   
   const handle = (e) => {
     e.preventDefault();
-    setOpen(true);
+    
     setDetailsError(false);
     setTitleError(false);
-    dispatch(addtitle({title:title,detail:details,type:type}));
+    
     
     if(title === '') {
       setTitleError(true);
@@ -40,7 +40,8 @@ function Create() {
       setDetailsError(true);
     }
     if (title && details) {
-     
+      setOpen(true);
+      dispatch(addtitle({title:title,detail:details,type:type}));
       setDetails('');
       setTitle('');
       
