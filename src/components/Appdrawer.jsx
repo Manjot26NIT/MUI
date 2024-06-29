@@ -88,7 +88,7 @@ const drawerWidth = 240;
             <ListItem key={78} disablePadding>
             <ListItemButton  sx={{
       '&:active': {
-        // Change the background color on hover
+        // Change the background color on hoverd
         color: 'purple', // Optional: Change the text color on hover to white for better readability
       },
       
